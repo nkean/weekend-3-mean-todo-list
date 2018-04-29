@@ -14,8 +14,8 @@
 <body>
     <main ng-app="TodoApp" ng-controller="TodoController as vm">
         <h1>MEAN Stack ToDo List</h1>
-        <input type="text" ng-model="vm.newTask.description" placeholder="What do you need to get done?">
-        <button ng.click="vm.postTask()">Add Task</button>
+        <input type="text" ng-model="vm.newTask.description" placeholder="What do you need to get done?" />
+        <button ng-click="vm.postTask()">Add Task</button>
 
         <table>
             <thead>
@@ -27,9 +27,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="task in vm.taskList">
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td><input type="text" ng-model="task.description"></td>
+                    <td><button ng-click="vm.completeTask(task)">Complete</button></td>
+                    <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
                 </tr>
             </tbody>
         </table>

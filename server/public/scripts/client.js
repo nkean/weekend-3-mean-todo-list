@@ -9,6 +9,37 @@ app.controller('TodoController', ['$http', function ($http) {
     self.newTask = {};
     self.taskList = [];
 
+    self.completeTask = function(task) {
+        task.completed = true;
+        $http({
+            method: 'PUT',
+            url: '/task',
+            data: task
+        })
+        .then(function(response) {
+            console.log('PUT responded with: ', response);
+            self.getAllTasks();
+        })
+        .catch(function(error){
+            console.log('PUT responded with error: ', error);
+        });
+    }
+    
+    self.deleteTask = function(task) {
+        $http({
+            method: 'DELETE',
+            url: '/task',
+            params: task
+        })
+        .then(function(response) {
+            console.log('DELETE responded with: ', response);
+            self.getAllTasks();
+        })
+        .catch(function(error) {
+            console.log('DELETE responded with error: ', error);
+        })
+    }
+
     self.getAllTasks = function () {
         $http({
             method: 'GET',
