@@ -1,0 +1,26 @@
+{
+  "name": "weekend-3-mean-todo-list",
+  "version": "1.0.0",
+  "description": "Weekend 3 Challenge: MEAN Stack ToDo List",
+  "main": "server/server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkean/weekend-3-mean-todo-list.git"
+  },
+  "author": "Nathan Kean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nkean/weekend-3-mean-todo-list/issues"
+  },
+  "homepage": "https://github.com/nkean/weekend-3-mean-todo-list#readme"
+}
