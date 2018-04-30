@@ -16,27 +16,29 @@
     <main ng-app="TodoApp" ng-controller="TodoController as vm">
         <section class="container">
             <h1>MEAN Stack ToDo List</h1>
-            <form class="col-md-10">
-                <div class="form-group col-md-10">
-                    <label for="taskInput">Enter Task:</label>
+            <div class="col-md-8">
+                <label for="taskInput">Enter Task:</label>
+                <div class="input-group mb-3">
                     <input name="taskInput" type="text" class="form-control" ng-model="vm.newTask.description" placeholder="What do you need to get done?">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" ng-click="vm.postTask()">Add Task</button>
+                    </div>
                 </div>
-                <div class="form-group col-md-2 float-right">
-                    <button class="btn btn-primary" ng-click="vm.postTask()">Add Task</button>
-                </div>
-            </form>
+            </div>
         </section>
         <section class="container">
             <h3>Task List</h3>
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="task in vm.taskList" ng-class="{'bg-secondary':task.completed}">
-                    {{task.description}}
-                    <div class="btn-group float-right">
-                    <button class="btn btn-success" ng-click="vm.completeTask(task)" ng-hide="task.completed">Complete</button>
-                    <button class="btn btn-danger" ng-click="vm.deleteTask(task)">Delete</button>
-                    </div>
-                </li>
-            </ul>
+            <div class="col-md-8">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="task in vm.taskList" ng-class="{'bg-secondary':task.completed}">
+                        {{task.description}}
+                        <div class="btn-group float-right">
+                            <button class="btn btn-success" ng-click="vm.completeTask(task)" ng-hide="task.completed">Complete</button>
+                            <button class="btn btn-danger" ng-click="vm.deleteTask(task)">Delete</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </section>
     </main>
 </body>
