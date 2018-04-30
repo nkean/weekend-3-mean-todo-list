@@ -8,31 +8,36 @@
     <title>Weekend 3 Challenge - MEAN Stack ToDo List</title>
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
 </head>
 
 <body>
     <main ng-app="TodoApp" ng-controller="TodoController as vm">
-        <h1>MEAN Stack ToDo List</h1>
-        <input type="text" ng-model="vm.newTask.description" placeholder="What do you need to get done?" />
-        <button ng-click="vm.postTask()">Add Task</button>
-
-        <table>
-            <thead>
-                <tr>
-                    <td>Description</td>
-                    <td>Finish</td>
-                    <td>Delete</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="task in vm.taskList">
-                    <td><input type="text" ng-model="task.description"></td>
-                    <td><button ng-click="vm.completeTask(task)">Complete</button></td>
-                    <td><button ng-click="vm.deleteTask(task)">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <section class="container">
+            <h1>MEAN Stack ToDo List</h1>
+            <form class="col-md-10">
+                <div class="form-group col-md-10">
+                    <label for="taskInput">Enter Task:</label>
+                    <input name="taskInput" type="text" class="form-control" ng-model="vm.newTask.description" placeholder="What do you need to get done?">
+                </div>
+                <div class="form-group col-md-2 float-right">
+                    <button class="btn btn-primary" ng-click="vm.postTask()">Add Task</button>
+                </div>
+            </form>
+        </section>
+        <section class="container">
+            <h3>Task List</h3>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="task in vm.taskList" ng-class="{'bg-secondary':task.completed}">
+                    {{task.description}}
+                    <div class="btn-group float-right">
+                    <button class="btn btn-success" ng-click="vm.completeTask(task)" ng-hide="task.completed">Complete</button>
+                    <button class="btn btn-danger" ng-click="vm.deleteTask(task)">Delete</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 
