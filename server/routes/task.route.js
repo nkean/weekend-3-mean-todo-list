@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const newTask = req.body;
     newTask.completed = false;
-    
+
     Task.create(newTask)
         .then(() => {
             res.sendStatus(200);
